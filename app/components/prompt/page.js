@@ -9,7 +9,7 @@ import { useEffect, useRef } from 'react';
 export default function Prompt({id, author, authorEmail, promptText, tags }) {
   let limitedPromptText = '';
   if (promptText && promptText.length > 10) {
-      limitedPromptText = promptText.substring(0, promptText.indexOf(' ', 10));
+      limitedPromptText = promptText.split(' ').slice(0, 6).join(' ');
   } else {
       // Handle the case where promptText is undefined, null, or shorter than 10 characters
       limitedPromptText = promptText;
