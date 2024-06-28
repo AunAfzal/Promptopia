@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import Copy from './copy.svg'
+import Copy from './copy.svg';
 import ClipboardJS from 'clipboard';
 import { useEffect, useRef } from 'react';
 
@@ -30,13 +30,13 @@ export default function Prompt({id, author, authorEmail, promptText, tags }) {
   }, [promptText]);
 
   return (
-    <div >
+    <div>
         <div>
           <div className="font-bold">{author}</div>
           <div className="text-gray-500 break-all">{authorEmail}</div>
           <div>{limitedPromptText}..</div>
           <div className="mt-2 flex flex-wrap text-blue-500">
-            {tags.map((tag) => (
+            {tags && tags.map((tag) => (
               <span key={tag} className="bg-gray-100 p-2 rounded-md mr-2">
                 {tag}
               </span>
