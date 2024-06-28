@@ -7,7 +7,14 @@ import ClipboardJS from 'clipboard';
 import { useEffect, useRef } from 'react';
 
 export default function Prompt({id, author, authorEmail, promptText, tags }) {
-  const limitedPromptText = promptText.substring(0, promptText.indexOf(' ', 10));
+  let limitedPromptText = '';
+  if (promptText && promptText.length > 10) {
+      limitedPromptText = promptText.substring(0, promptText.indexOf(' ', 10));
+  } else {
+      // Handle the case where promptText is undefined, null, or shorter than 10 characters
+      limitedPromptText = promptText;
+  }
+
   const clipboardBtnRef = useRef(null);
 
   useEffect(() => {
